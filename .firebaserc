@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "livesale-4148f": {
+      "hosting": {
+        "LiveSale": [
+          "livesale-4148f"
+        ]
+      }
+    }
+  }
+}

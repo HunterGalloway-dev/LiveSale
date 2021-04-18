@@ -2,14 +2,16 @@
 
   <main class="form-signin bg-white">
     <form>
-      <h1 class="h3 mb-3 fw-normal">Sign In</h1>
+      <h1 class="h3 mb-3 fw-normal">
+        <strong>Sign Up</strong>
+      </h1>
 
       <div class="form-floating">
         <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
         <label for="floatingInput">Email address</label>
       </div>
       <div class="form-floating">
-        <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+        <input type="password" class="form-control" #password id="floatingPassword" placeholder="Password">
         <label for="floatingPassword">Password</label>
       </div>
 
@@ -19,12 +21,13 @@
       </div>
 
       <button class="w-100 btn btn-lg btn-primary btn-google" type="submit">Sign Up</button>
-
-      <hr>
-
-      <button class="w-100 btn btn-lg btn-white btn-google" type="submit">Sign Up With Google</button>
-      <button class="w-100 btn btn-lg btn-primary btn-google" type="submit">Sign Up With Facebook</button>
     </form>
+    <hr>
+
+    <button class="w-100 btn btn-lg btn-white btn-google">Sign Up With Google</button>
+    <button class="w-100 btn btn-lg btn-primary btn-google">Sign Up With Facebook</button>
+
+    Already have an account? <a class="text-muted">Sign In</a>
   </main>
 
 </body>

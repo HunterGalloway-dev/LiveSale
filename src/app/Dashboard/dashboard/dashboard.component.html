@@ -1,0 +1,60 @@
+<body>
+  <div class="container-fluid">
+    <div class="row main-content">
+      <div class="text-white sidebar d-flex flex-column p-3 cold-md-3 col-lg-2 bg-dark">
+        <span>
+          <h3>Store</h3>
+        </span>
+        <hr>
+        <ul class="nav nav-pills flex-column mb-auto">
+          <li>
+
+            <a routerLink="/dashboard/overview" class="nav-link text-white">
+              <span class="material-icons">
+                dashboard
+              </span>
+              Overview
+            </a>
+          </li>
+          <li>
+            <a href="/dashboard/sales" class="nav-link text-white">
+              <span class="material-icons">
+                store
+              </span>
+              Sales
+            </a>
+          </li>
+          <li>
+            <a href="/dashboard/orders" class="nav-link text-white">
+              <span class="material-icons">
+                table_view
+              </span>
+              Orders
+            </a>
+          </li>
+          <li>
+            <a routerLink="/dashboard/products" class="nav-link text-white">
+              <span class="material-icons">
+                inventory
+              </span>
+              Products
+            </a>
+          </li>
+          <li>
+            <a href="/dashboard/settings" class="nav-link text-white">
+              <span class="material-icons">
+                settings
+              </span>
+              Settings
+            </a>
+          </li>
+        </ul>
+      </div>
+      <!-- Main content -->
+      <main class="col-md-9 col-sm-auto col-lg-10 py-4">
+        <router-outlet></router-outlet>
+      </main>
+    </div>
+  </div>
+
+</body>

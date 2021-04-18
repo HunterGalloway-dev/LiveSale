@@ -1,0 +1,137 @@
+<!-- Breadcrum -->
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="#">Store</a></li>
+      <li class="breadcrumb-item active" aria-current="page">Overview</li>
+  </ol>
+</nav>
+
+<div class="row my-4">
+  <div class="col-12 cold-md-3 col-lg-3 mb-4 mb-lg-0">
+    <div class="card text-center">
+      <h5 class="card-header bg-dark text-white">All Time Sales</h5>
+      <div class="card-body">
+        <h2 class="card-title">124</h2>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-12 cold-md-3 col-lg-3 mb-4 mb-lg-0">
+    <div class="card text-center">
+      <h5 class="card-header bg-dark text-white">All Time Profit</h5>
+      <div class="card-body">
+        <h2 class="card-title">$1340</h2>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-12 cold-md-3 col-lg-3 mb-4 mb-lg-0">
+    <div class="card text-center">
+      <h5 class="card-header bg-dark text-white">All Time Revenue</h5>
+      <div class="card-body">
+        <h2 class="card-title">$5342</h2>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-12 cold-md-3 col-lg-3 mb-4 mb-lg-0">
+    <div class="card text-center">
+      <h5 class="card-header bg-dark text-white">All Time Views</h5>
+      <div class="card-body">
+        <h2 class="card-title">124,000</h2>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Revenue Orders Average Viewers -->
+<div class="row my-4">
+  <div class="col-12 cold-md-6 col-lg-4 mb-4 mb-lg-0">
+    <div class="card text-center">
+      <h5 class="card-header bg-dark text-white">Finances</h5>
+      <div class="card-body">
+        <h2 class="card-title">$523</h2>
+        <h6 class="card-subtitle mb-2 text-muted">Revenue generated in the past month</h6>
+        <p class="card-text text-success">18.5% increase since last month</p>
+        <div class="chart-wrapper">
+          <canvas baseChart
+            [data]="doughnutChartData"
+            [labels]="doughnutChartLabels"
+            [chartType]="doughnutChartType"
+            [colors]="doughtnutChartColors">
+          </canvas>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Orders -->
+  <div class="col-12 cold-md-6 col-lg-4 mb-4 mb-lg-0">
+    <div class="card text-center">
+      <h5 class="card-header bg-dark text-white">Orders</h5>
+      <div class="card-body">
+        <h2 class="card-title">32</h2>
+        <h6 class="card-subtitle mb-2 text-muted">Orders in the past month</h6>
+        <p class="card-text text-success">5.2% increase since last month</p>
+        <div class="chart-wrapper">
+          <canvas baseChart
+            [datasets]="barChartData"
+            [labels]="barChartLabels"
+            [options]="barChartOptions"
+            [legend]="barChartLegend"
+            [chartType]="barChartType"
+            [colors]="barChartColors">
+          </canvas>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Viewers -->
+  <div class="col-12 cold-md-6 col-lg-4 mb-4 mb-lg-0">
+    <div class="card text-center">
+      <h5 class="card-header bg-dark text-white">Avgerage Viewers</h5>
+      <div class="card-body">
+        <h2 class="card-title">213</h2>
+        <h6 class="card-subtitle mb-2 text-muted">Average Viewers in the last month</h6>
+        <p class="card-text text-danger">15.5% decrease since last month</p>
+        <div class="chart-wrapper">
+          <canvas baseChart
+              [datasets]="lineChartData"
+              [labels]="lineChartLabels"
+              [options]="lineChartOptions"
+              [colors]="lineChartColors"
+              [legend]="lineChartLegend"
+              [chartType]="lineChartType"
+              [plugins]="lineChartPlugins">
+          </canvas>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- Table of latest orders -->
+<div class="row my-4">
+  <div class="col-12 col-md-6 col-lg-8">
+    <app-order-table [latest]="true"></app-order-table>
+  </div>
+  <div class="col-12 col-md-6 col-lg-4">
+    <div class="card text-center">
+      <h5 class="card-header bg-dark text-white">Geographic</h5>
+      <div class="card-body">
+        <div class="chart-wrapper">
+          <canvas baseChart
+            [data]="pieChartData"
+            [labels]="pieChartLabels"
+            [chartType]="pieChartType"
+            [options]="pieChartOptions"
+            [plugins]="pieChartPlugins"
+            [legend]="pieChartLegend">
+          </canvas>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

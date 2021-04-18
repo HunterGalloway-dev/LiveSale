@@ -1,0 +1,49 @@
+<div class="card text-center">
+  <h4 class="card-header bg-dark text-white" *ngIf="latest">Latest Orders</h4>
+  <h4 class="card-header bg-dark text-white" *ngIf="!latest">All Orders</h4>
+  <div class="card-body">
+    <div class="table-responsive">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Order #</th>
+            <th>Item Quanity</th>
+            <th>Customer</th>
+            <th>Total $</th>
+            <th>Date</th>
+            <th>Completed</th>
+            <th>Options</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let order of orders">
+            <td>{{order.orderNumber}}</td>
+            <td>{{order.numberOfItems}}</td>
+            <td>{{order.customer}}</td>
+            <td>{{order.priceTotal}}</td>
+            <td>{{order.date}}</td>
+            <td>
+              <span class="material-icons text-success" *ngIf="order.completed">
+                check_circle
+              </span>
+              <span class="material-icons text-warning" *ngIf="!order.completed">
+                cancel
+              </span>
+            </td>
+            <td><a href="#" class="btn btn-sm btn-primary">View</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <a class="btn btn-outline-primary">View All Orders</a>
+    <nav aria-label="Page navigation example" *ngIf="!latest">
+      <ul class="pagination">
+        <li class="page-item"><a class="page-link">Previous</a></li>
+        <li class="page-item"><a class="page-link">1</a></li>
+        <li class="page-item"><a class="page-link">2</a></li>
+        <li class="page-item"><a class="page-link">3</a></li>
+        <li class="page-item"><a class="page-link">Next</a></li>
+      </ul>
+    </nav>
+  </div>
+</div>

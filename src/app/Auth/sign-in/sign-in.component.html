@@ -1,8 +1,10 @@
 <body class="text-center bg-light">
 
   <main class="form-signin bg-white">
-    <form>
-      <h1 class="h3 mb-3 fw-normal">Sign In</h1>
+    <div>
+      <h1 class="h3 mb-3 fw-normal">
+        <strong>Sign In</strong>
+      </h1>
 
       <div class="form-floating">
         <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
@@ -13,19 +15,15 @@
         <label for="floatingPassword">Password</label>
       </div>
 
-      <div class="checkbox mb-3">
-        <label>
-          <input type="checkbox" value="remember-me"> Remember me
-        </label>
-      </div>
-
-      <button class="w-100 btn btn-lg btn-primary btn-google" type="submit">Sign in</button>
+      <button class="w-100 btn btn-lg btn-primary btn-google">Sign in</button>
+      <a>Forgot Password?</a>
 
       <hr>
 
-      <button class="w-100 btn btn-lg btn-white btn-google" type="submit">Sign in With Google</button>
-      <button class="w-100 btn btn-lg btn-primary btn-google" type="submit">Sign in With Facebook</button>
-    </form>
-  </main>
+      <button class="w-100 btn btn-lg btn-white btn-google" (click)="signinWithGoogle()">Sign in With Google</button>
+      <button class="w-100 btn btn-lg btn-primary btn-google">Sign in With Facebook</button>
 
+      Don't have an account? <a class="text-muted" routerLink="/sign-up">Sign Up</a>
+    </div>
+  </main>
 </body>
