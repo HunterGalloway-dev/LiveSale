@@ -1,9 +1,11 @@
 import { Injectable, NgZone } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
+import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
 import { Router } from '@angular/router';
 import * as firebase from 'firebase';
 import { Subject } from 'rxjs';
 import { Observable } from 'rxjs';
+import { User } from '../Models/user';
 
 @Injectable({
   providedIn: 'root'
@@ -13,18 +15,19 @@ export class AuthService {
   public googleProvider = new firebase.auth.GoogleAuthProvider();
 
   private userDataSubject: Subject<any> = new Subject<any>();
-  private userData: any;
+  private userData: User;
 
   constructor(
-    public afAuth: AngularFireAuth,
-    public router: Router,
-    public ngZone: NgZone,
+    private afAuth: AngularFireAuth,
+    private afStore: AngularFirestore,
+    private router: Router,
+    private ngZone: NgZone,
   ) {
     // Subscribes to the events of detecting if  the user is logged in or out and sets data up accordingly
     this.afAuth.authState.subscribe((user) => {
       if(user) {
         this.setUserData(user);
-        localStorage.setItem('user',this.userData);
+        localStorage.setItem('user',JSON.stringify(user));
         this.router.navigate(['/dashboard']);
       } else {
         localStorage.setItem('user',null);
@@ -76,9 +79,22 @@ export class AuthService {
     });
   }
 
-  setUserData(userData) {
-    this.userData = userData;
-    this.userDataSubject.next(this.userData);
+  setUserData(user) {
+    this.userData = user;
+    const userRef: AngularFirestoreDocument<any> = this.afStore.doc(`users/${user.uid}`);
+    console.log(user);
+
+    console.log(userRef);
+
+    this.userData = {
+      uid: user.uid,
+      email: user.email,
+      displayName: user.displayName,
+      emailVerified: user.emailVerified,
+      stores: []
+    }
+
+    return userRef.set(this.userData, {merge: true})
   }
 
   signUp(email: string, password: string) {

@@ -1,7 +1,7 @@
 <body class="text-center bg-light">
 
   <main class="form-signin bg-white">
-    <form>
+    <form #myForm="ngForm" (ngSubmit)="signUp()"> 
       <h1 class="h3 mb-3 fw-normal">
         <strong>Sign Up</strong>
       </h1>
